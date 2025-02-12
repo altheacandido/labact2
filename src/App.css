@@ -1,0 +1,572 @@
+html, body {
+  height: auto; /* Ensures content expands dynamically */
+  width: 100%;
+  margin: auto;
+  padding: 0;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: #222;
+}
+
+/* Ensure Root Container Takes Full Height */
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: auto; /* Ensures scrolling works */
+}
+
+@font-face {
+  font-family: 'DINPro-Bold';
+  src: url('/fonts/DINPro-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #fff;
+  border-bottom: 2px solid #ddd;
+  position: sticky;
+  top: 0;
+  width: 198vh;
+  height: 90px;
+  z-index: 100; /* Ensures it stays above content */
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+}
+
+.nav-img {
+  height: 100px; /* Adjust size */
+  object-fit: contain;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  font-weight: bold;
+  font-family: 'DINPro-Bold', sans-serif;
+}
+
+.nav-menu a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: rgb(41, 40, 40);
+  font-weight: 780;
+  font-family: 'DINPro-Bold', sans-serif;
+  text-decoration: none;
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 180px;
+  margin-right: 10px;
+}
+
+.cart {
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+.logo {
+  height: 34px;
+  margin-right: 10px;
+  padding:30px;
+}
+/* Banner */
+.banner {
+  text-align: center;
+  position: relative;
+  width: 100vw; /* Fixed width */
+  height: 500px; /* Ensures the banner is visible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* Removed excessive padding */
+  margin-top: 90px; /* Fixed spacing issue */
+}
+
+/* Banner Image */
+.banner-img {
+  width: 100%;
+  max-width: 1450px; /* Prevents it from stretching too much */
+  height: auto;
+  object-fit: cover;
+}
+
+.cta-button {
+  display: inline-block;
+  background: #ff3b30;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.cta-button:hover {
+  background: #e02d25;
+}
+
+/* Sections */
+.new-arrivals, .featured, .recommendations, .popular-searches {
+  max-width: 1500px; /* Matches Featured section */
+  padding: 90px;
+  min-height: 500px; /* Allows sections to expand as needed */
+  margin-left: 100px;
+    padding: 30px 90px 90px 90px;
+}
+
+.new-arrivals h2{
+  color:#e02d25;
+  font-size: 36px;
+  margin-left: 30px;
+}
+
+.more-link {
+  color: #272829;
+  font-size: 20px;
+  margin-left: 124vh;
+    font-family: 'DINPro-Bold', sans-serif;
+}
+
+.new-arrival-grid {
+  display: flex;
+  grid-template-columns: repeat(4, 1fr); /* Ensure 4 products per row */
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1400px; /* Adjust width for proper alignment */
+  margin: auto;
+  position: relative; 
+}
+
+/* Navigation Arrows */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 1400px; /* Matches grid width */
+  margin: auto;
+}
+
+/* Navigation Arrows */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+  background: rgba(255, 255, 255, 0.205); /* Light transparent background */
+  border: 1px solid #dddddd27;
+  font-size: 30px;
+  padding: 10px 15px;
+  z-index: 10;
+  cursor: pointer; /* Arrows should not be clickable */
+}
+
+.carousel-btn.left {
+  left: 0;
+}
+
+.carousel-btn.right {
+  right: 0;
+}
+
+/* Banner Arrows */
+/* Banner Slideshow Wrapper */
+.banner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+/* Banner Image */
+.banner-img {
+  width: 100%;
+  max-width: 1450px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Navigation Arrows */
+.banner-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+  background: rgba(255, 255, 255, 0.2); /* Light transparent background */
+  border: 1px solid rgba(221, 221, 221, 0.15);
+  font-size: 30px;
+  padding: 10px 15px;
+  z-index: 10;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.banner-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.banner-btn.left {
+  left: 10px;
+}
+
+.banner-btn.right {
+  right: 10px;
+}
+
+
+.card {
+  flex: 0 0 auto; 
+  width: 330px;
+  height: 300px;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 350px;
+  height: 360px; /* Adjust as needed */
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.product-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.product-date {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.product-card {
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  border: none;
+  text-align: left;
+  width: 250px;
+}
+
+.product-date {
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+}
+
+.product-price {
+  font-size: 1rem;
+  color: #d0021b; /* Matches the red color for price */
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: left;
+}
+
+
+/* Featured Section */
+.featured {
+  max-width: 1000px; /* Aligns with the banner */
+  margin-left: 30px;
+  min-height: auto;
+  margin-left: 130px;
+}
+
+.featured h2{
+  font-size: 30px;
+  margin-left: 0px;
+}
+
+/* Featured Grid */
+.featured-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Large on the left, two stacked on the right */
+  gap: 20px;
+}
+
+/* Large Feature Section */
+.featured-large {
+  height: 100%;
+  width: 100%;
+}
+
+/* Two Smaller Sections Stacked */
+.featured-small {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  width: 220%;
+}
+
+/* Ensures All Sections Fill Grid */
+.featured-large,
+.featured-small div {
+  width: 100%;
+  height: 100%;
+}
+
+/* Featured Alt Section Fixes */
+/* Featured Alt Section */
+.featured-alt {
+  max-width: 1000px; /* Aligns with the banner */
+  padding: 30px 90px 90px 90px;
+  min-height: auto;
+  margin-left: 150px;
+}
+
+.featured-alt h2 {
+  font-size: 30px;
+}
+
+/* Featured Alt Grid */
+.featured-alt-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Large on the left, two stacked on the right */
+  gap: 20px;
+}
+
+/* Large Featured Section */
+.featured-alt-large {
+  height: 100%;
+  width: 100%;
+}
+
+/* Two Smaller Sections Stacked */
+.featured-alt-small {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  width: 220%;
+}
+
+/* Ensures All Sections Fill Grid */
+.featured-alt-large,
+.featured-alt-small div {
+  width: 100%;
+  height: 100%;
+}
+
+/* Image Styling */
+.featured-alt-large img,
+.featured-alt-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures images fill without distortion */
+  border-radius: 10px;
+}
+
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+/* Recommendations Section */
+.recommendations {
+  max-width: 1500px; /* Matches Featured section */
+  padding: 90px;
+  min-height: 70px; /* Allows sections to expand as needed */
+  margin-left: 100px;
+  padding: 30px 90px 90px 90px;
+}
+
+
+/* Title Styling */
+.recommendations h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 30px;
+}
+
+/* Wrapper for Carousel */
+.recommendation-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 1400px; /* Matches grid width */
+  margin: auto;
+}
+
+/* Grid Layout for Product Cards */
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Display 3 items in a row */
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+/* Navigation Arrows */ 
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  border: 1px solid #ddd;
+  font-size: 30px;
+  padding: 10px 15px;
+  z-index: 10;
+  cursor: default;
+}
+
+.carousel-btn.left {
+  left: -50px;
+}
+
+.carousel-btn.right {
+  right: -50px;
+}
+
+/* Individual Recommendation Card */
+.recommendation-card {
+  width: 350px;
+  height: 360px; /* Adjust as needed */
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.recommendation-card:hover {
+  transform: scale(1.05);
+}
+
+/* Image Styling */
+.recommendation-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Product Title */
+.product-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+.product-date {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.product-price {
+  font-size: 18px;
+  color: red;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.nav-button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.nav-button:hover {
+  background: gray;
+}
+
+
+/* Popular Searches */
+.popular-searches{
+  padding: 30px 90px 90px 90px;
+}
+.popular-searches h2{
+  font-size: 28px;
+}
+.search-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 25px;
+}
+
+.search-tags span {
+  background: #eceaea;
+  padding: 5px 25px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.search-tags span:hover {
+  background: #bbb;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: white;
+  margin-top: auto;
+}
